@@ -51,7 +51,7 @@ public class Grafo {
             if (w != -1){
                 explorado.add(w);
                 caminos[w-1] = l;
-                //System.out.println(w + " " + l);
+
             } else {
                 for (int i = 0; i < n; i++){
                     if (!explorado.contains(i+1)){
