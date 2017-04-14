@@ -6,9 +6,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
-/**
- * Created by felix on 4/13/2017.
- */
 public class Grafo {
 
     private ArrayList<ArrayList<int[]>> vertices;
@@ -35,36 +32,36 @@ public class Grafo {
     public int[] caminoCorto(){
         int n = vertices.size();
         explorado = new HashSet<Integer>();
-        int[] paths = new int[n];
+        int[] caminos = new int[n];
         explorado.add(1);
-        paths[0] = 0;
+        caminos[0] = 0;
         while (explorado.size() < n){
             int w = -1;
             int l = 1000000;
             for (int nodo : explorado){
                 for (int[] edge : vertices.get(nodo - 1)){
                     if (!explorado.contains(edge[0])){
-                        if (paths[nodo-1] + edge[1] < l){
+                        if (caminos[nodo-1] + edge[1] < l){
                             w = edge[0];
-                            l = paths[nodo-1] + edge[1];
+                            l = caminos[nodo-1] + edge[1];
                         }
                     }
                 }
             }
             if (w != -1){
                 explorado.add(w);
-                paths[w-1] = l;
+                caminos[w-1] = l;
                 //System.out.println(w + " " + l);
             } else {
                 for (int i = 0; i < n; i++){
                     if (!explorado.contains(i+1)){
-                        paths[i] = 1000000;
+                        caminos[i] = 1000000;
                     }
                 }
                 break;
             }
         }
-        return paths;
+        return caminos;
     }
 
 
