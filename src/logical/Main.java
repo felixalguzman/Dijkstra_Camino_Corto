@@ -8,14 +8,14 @@ import java.io.FileNotFoundException;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-            int[] ver = {7,37,59,82,99,115,133,165,188,197 };
-            Grafo g = new Grafo("Archivo/Archivo.txt");
-            int[] caminos = g.caminoCorto();
 
-        for (int i: ver){
-            System.out.print(caminos[i] + " ");
+        Grafo g = new Grafo("Archivo/Archivo.txt");
+        int[] caminos = g.caminoCorto();
 
-        }
+
+        System.out.print(caminos[7] +"," +caminos[37] + "," +caminos[59] + "," +caminos[82] + "," + caminos[99] + ", " +caminos[115]+ ","+ caminos[133] + "," + caminos[165] + ","+caminos[188] + ", " +caminos[197] );
+
+
 
 
 
